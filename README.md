@@ -1,10 +1,9 @@
-# ChemIQ
-Assessing the Chemical Intelligence of Large Language Models
+# ChemIQ - Assessing the Chemical Intelligence of Large Language Models
 
 <p align="center"><img src="figures/ChemIQ-results-summary.png" alt="Task summary figure" width="800"/></p>
 
 ## Quick start
-All benchmark items are stored in questions/chemiq.jsonl. The workflow is split accross three Jupyter notebooks. 
+All benchmark questions are stored in `questions/chemiq.jsonl`. The workflow is split across three Jupyter notebooks. 
 
 ```bash
 conda create -n ChemIQ python=3.11 numpy pandas matplotlib scipy requests openai rdkit -c conda-forge
@@ -35,14 +34,13 @@ ChemIQ consists of algorithmically generated questions from eight distinct tasks
 | `reaction_prediction` | Write the product of reaction [SMILES 1] + [SMILES 2] as a SMILES string | This task is primarly focused on interpreting basic chemical reactions from SMILES and then applying to correct transformation to write the SMILES string of the product. These reaction questions are "easy" for a chemist and do not test other reaction prediction factors like selectivity, stereochemistry, reaction conditions etc.|
 | `nmr_elucidation`     | Write the SMILES string of the molecule consistent with this data [Formula] [¹H NMR] [¹³C NMR] | This task is our most advanced task for interpreting molecular structures. This requires mapping of NMR features to local chemical structures, then combining them together consistent with the NMR data.|
 
-### Question sets
+## Questions
 | File Path | Description |
 |---|---|
 | `questions/chemiq.jsonl`| Main benchmark consiting of 796 questions.|
 | `questions/additional_smiles_to_iupac.jsonl`| Additional questions used for error analysis of SMILES to IUPAC task (functional group naming and locant numbering).|
 | `questions/smiles_to_iupac_zinc_randomized_100.jsonl`| 100 SMILES to IUPAC questions using randomized SMILES. If you only want to run a small number of questions, these give a good indication of molecular comprehension.|
 
-### Question Schema
 Each line in the .jsonl is a single question encoded as a Python dictionary:
 
 ```
@@ -60,3 +58,4 @@ Each line in the .jsonl is a single question encoded as a Python dictionary:
  'ChemIQ': True}
 ```
 
+Submit each prompt to the LLM. The responses can be scored using the helpers in `2_process_results.ipynb`. For nearly all questions, the correct answer is given in the `answer` field. The only exception is the SAR questions with added noise where any value inside answer_range is accepted. The answer checking method is defined by `verification_method`, which points to one of the checker functions implemented in 2_process_results.ipynb.
