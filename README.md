@@ -1,8 +1,28 @@
-# ChemIQ-public
+# ChemIQ
 Assessing the Chemical Intelligence of Large Language Models
 
+<p align="center"><img src="figures/ChemIQ-results-summary.png" alt="Task summary figure" width="800"/></p>
+
+## Quick start
+All benchmark items are stored in questions/chemiq.jsonl. The workflow is split accross three Jupyter notebooks. 
+
+```bash
+conda create -n ChemIQ python=3.11 numpy pandas matplotlib scipy requests openai rdkit -c conda-forge
+```
+
+| Notebook | Purpose |
+|----------|---------|
+| **`1_load_and_submit_questions.ipynb`** | Loads the JSONL file and shows how to batch-submit the prompts to the OpenAI API. |
+| **`2_process_results.ipynb`** | Parses the raw completions, applies the scoring rubric, and writes a tidy results file. |
+| **`3_data_analysis.ipynb`** | Aggregates the scores and recreates all figures reported in the manuscript. |
+
+
 ## Benchmark construction
-ChemIQ consists algorithmically generated questions from eight distinct tasks:
+ChemIQ consists of algorithmically generated questions from eight distinct tasks:
+
+<p align="center"><img src="figures/task_summary_figure.png" alt="Task summary figure" width="800"/></p>
+
+**Figure 1:** Question categories in the ChemIQ benchmark. The number of questions in each category is shown in the panel header, and * indicates the set contains 50% canonical and 50% randomized SMILES.
 
 | question_category   | Task                                                                 | Purpose                                                      |
 |---------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
@@ -14,12 +34,6 @@ ChemIQ consists algorithmically generated questions from eight distinct tasks:
 | `sar_inference`       | Given [molecular data] determine the score of [SMILES]               | Shows ability to extract molecular features, assign values, then generalise this to an unseen molecules|
 | `reaction_prediction` | Write the product of reaction [SMILES 1] + [SMILES 2] as a SMILES string | This task is primarly focused on interpreting basic chemical reactions from SMILES and then applying to correct transformation to write the SMILES string of the product. These reaction questions are "easy" for a chemist and do not test other reaction prediction factors like selectivity, stereochemistry, reaction conditions etc.|
 | `nmr_elucidation`     | Write the SMILES string of the molecule consistent with this data [Formula] [¹H NMR] [¹³C NMR] | This task is our most advanced task for interpreting molecular structures. This requires mapping of NMR features to local chemical structures, then combining them together consistent with the NMR data.|
-
-
-<p align="center"><img src="figures/task_summary_figure.png" alt="Task summary figure" width="800"/></p>
-
-**Figure 1:** Question categories in the ChemIQ benchmark. The number of questions in each category is shown in the panel header, and * indicates the set contains 50% canonical and 50% randomized SMILES.
-
 
 ### Question sets
 | File Path | Description |
@@ -45,3 +59,4 @@ Each line in the .jsonl is a single question encoded as a Python dictionary:
  'verification_method': 'exact_match',
  'ChemIQ': True}
 ```
+
