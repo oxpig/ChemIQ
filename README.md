@@ -47,7 +47,6 @@ ChemIQ consists of algorithmically generated questions from eight question categ
 |---|---|
 | `questions/chemiq.jsonl`| Main benchmark consisting of 796 questions.|
 | `questions/additional_smiles_to_iupac.jsonl`| Additional questions used for error analysis of SMILES to IUPAC task (functional group naming and locant numbering).|
-| `questions/smiles_to_iupac_zinc_randomized_100.jsonl`| 100 SMILES to IUPAC questions using randomized SMILES. If you only want to run a small number of questions, these give a good indication of molecular comprehension.|
 
 Each line in the .jsonl is a single question stored as a Python dictionary:
 
