@@ -1,7 +1,7 @@
 # ChemIQ - Assessing the Chemical Intelligence of Large Language Models
 ChemIQ is a benchmark designed to test the ability of LLMs to interpret molecular structures and perform chemical reasoning. Questions in this benchmark range from counting the number of carbon atoms in a molecule, to performing NMR elucidation. 
 
-Read the paper here: [arXiv:2404.XXXX](…)  
+Read the paper here: https://arxiv.org/abs/2505.07735
 
 <p align="center"><img src="figures/ChemIQ-results-summary.png" alt="Task summary figure" width="800"/></p>
 
