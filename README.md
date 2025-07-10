@@ -3,7 +3,7 @@ ChemIQ is a benchmark designed to test the ability of LLMs to interpret molecula
 
 Read the paper here: https://arxiv.org/abs/2505.07735
 
-<p align="center"><img src="figures/ChemIQ-results-summary.png" alt="Task summary figure" width="800"/></p>
+<p align="center"><img src="figures/combined_radar_bar_grid_updated.png" alt="Task summary figure" width="800"/></p>
 
 ## Quick start
 Create a conda environment:
@@ -15,14 +15,7 @@ And activate it:
 conda activate ChemIQ
 ```
 
-All benchmark questions are stored in `questions/chemiq.jsonl`. The workflow is split across three Jupyter notebooks:
-
-| Notebook | Purpose |
-|----------|---------|
-| **`1_load_and_submit_questions.ipynb`** | Loads the JSONL file and shows how to batch-submit the prompts to the OpenAI API. |
-| **`2_process_results.ipynb`** | Parses the raw completions, applies the scoring rubric, and writes a tidy results file. |
-| **`3_data_analysis.ipynb`** | Aggregates the scores and recreates all figures reported in the manuscript. |
-
+All benchmark questions are stored in `questions/chemiq.jsonl`. 
 
 ## Benchmark construction
 ChemIQ consists of algorithmically generated questions from eight question categories:
@@ -45,7 +38,7 @@ ChemIQ consists of algorithmically generated questions from eight question categ
 ## Questions
 | File Path | Description |
 |---|---|
-| `questions/chemiq.jsonl`| Main benchmark consisting of 796 questions.|
+| `questions/chemiq.jsonl`| Main benchmark consisting of 816 questions.|
 | `questions/additional_smiles_to_iupac.jsonl`| Additional questions used for error analysis of SMILES to IUPAC task (functional group naming and locant numbering).|
 
 Each line in the .jsonl is a single question stored as a Python dictionary:
