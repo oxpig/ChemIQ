@@ -64,11 +64,13 @@ Submit each prompt to the LLM. The responses can be scored using the helpers in 
 If you use ChemIQ, please cite:
 
 ```bibtex
-@article{runcie2025assessing,
-  title={Assessing the Chemical Intelligence of Large Language Models},
-  author={Nicholas T. Runcie and Charlotte M. Deane and Fergus Imrie},
-  journal={arXiv preprint arXiv:2505.07735},
-  year={2025},
-  doi={10.48550/arXiv.2505.07735},
-  url={https://arxiv.org/abs/2505.07735},
+@article{runcie2026chemiq,
+  author  = {Runcie, Nicholas T. and Deane, Charlotte M. and Imrie, Fergus},
+  title   = {Assessing the Chemical Intelligence of Large Language Models},
+  journal = {Journal of Chemical Information and Modeling},
+  volume  = {66},
+  number  = {1},
+  pages   = {216--227},
+  year    = {2026},
+  doi     = {10.1021/acs.jcim.5c02145}
 }
